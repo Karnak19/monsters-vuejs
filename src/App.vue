@@ -1,16 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 
+<script>
+import Navbar from "@/components/Navbar.vue";
+
+export default {
+  name: "App",
+  components: {
+    Navbar
+  }
+};
+</script>
+
 <style>
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap");
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -19,6 +29,7 @@
 
 #nav {
   padding: 30px;
+  font-family: "Permanent Marker", cursive;
 }
 
 #nav a {
@@ -26,7 +37,7 @@
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
+#nav a {
   color: #42b983;
 }
 </style>
