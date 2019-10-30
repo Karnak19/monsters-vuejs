@@ -20,6 +20,6 @@ export default {
 
 <style scoped>
 .home {
-  padding-top: 15px;
+  margin-top: 15px;
 }
 </style>

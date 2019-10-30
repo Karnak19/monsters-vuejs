@@ -1,13 +1,19 @@
 <template>
   <b-col :size="resized" :offset="offseted">
     <div class="card">
-      <div class="card-header justify-center">
-        <font-awesome-icon v-for="(el, i) in stars" :key="i" :icon="star" size="lg" />
+      <div class="card-header justify-center" :style="{padding:'5px'}">
+        <font-awesome-icon
+          v-for="(el, i) in stars"
+          :key="i"
+          :icon="star"
+          size="lg"
+          :style="{color:'red'}"
+        />
       </div>
       <div class="card-image" @click="click">
         <img :src="picture" alt />
       </div>
-      <div class="card-body">{{name}}</div>
+      <div class="card-body permanent">{{name}}</div>
       <footer class="card-footer">
         <p class="card-footer-item">{{attack}}</p>
         <p class="card-footer-item">{{defense}}</p>
@@ -66,5 +72,9 @@ export default {
 <style scoped>
 .justify-center {
   justify-content: center;
+}
+
+.permanent {
+  font-family: "Permanent Marker", cursive;
 }
 </style>
