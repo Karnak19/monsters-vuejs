@@ -1,6 +1,6 @@
 <template>
   <b-col :size="resized" :offset="offseted">
-    <div class="card">
+    <div class="card" :class="{'hovered':grayscale}">
       <div class="card-header justify-center" :style="{padding:'5px'}">
         <font-awesome-icon
           v-for="(el, i) in stars"
@@ -15,8 +15,12 @@
       </div>
       <div class="card-body permanent">{{name}}</div>
       <footer class="card-footer">
-        <p class="card-footer-item">{{attack}}</p>
-        <p class="card-footer-item">{{defense}}</p>
+        <p
+          class="card-footer-item has-background-danger permanent has-text-white is-size-3"
+        >{{attack}}</p>
+        <p
+          class="card-footer-item has-background-warning permanent has-text-dark is-size-3"
+        >{{defense}}</p>
       </footer>
     </div>
   </b-col>
@@ -64,7 +68,8 @@ export default {
     level: String,
     click: Function,
     size: Number,
-    offset: Number
+    offset: Number,
+    grayscale: Boolean
   }
 };
 </script>
@@ -72,6 +77,19 @@ export default {
 <style scoped>
 .justify-center {
   justify-content: center;
+}
+
+.hovered {
+  filter: grayscale(50%);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.5s;
+}
+
+.hovered:hover {
+  filter: none;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .permanent {

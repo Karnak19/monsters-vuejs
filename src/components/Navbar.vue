@@ -10,21 +10,37 @@
     </template>
     <template slot="start">
       <b-navbar-item tag="router-link" :to="{path: '/'}">Home</b-navbar-item>
-      <b-navbar-item tag="router-link" :to="{path: '/about'}">About</b-navbar-item>
+      <b-navbar-item tag="router-link" :to="{path: '/about'}">Fight !</b-navbar-item>
     </template>
 
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">Log in</a>
+          <b-button class="is-danger" @click="removeLS">
+            <strong>Sign out</strong>
+          </b-button>
         </div>
       </b-navbar-item>
     </template>
   </b-navbar>
 </template>
+
+<script>
+export default {
+  name: "Navbar",
+  methods: {
+    removeLS: function() {
+      localStorage.removeItem("name");
+      this.$buefy.toast.open({
+        duration: 2000,
+        position: "is-top",
+        type: "is-success",
+        message: "Disconnected successfully"
+      });
+    }
+  }
+};
+</script>
 
 <style scoped>
 a {
